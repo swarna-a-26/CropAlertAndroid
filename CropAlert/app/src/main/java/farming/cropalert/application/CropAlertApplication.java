@@ -50,10 +50,7 @@ public class CropAlertApplication {
 
     }
 
-    public static CropAlertApplication getInstance() {
-        return instance;
 
-    }
 
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
