@@ -1,5 +1,6 @@
 package farming.cropalert;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,48 +12,47 @@ import com.google.gson.reflect.TypeToken;
 
 
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import java.util.List;
+
 
 import farming.cropalert.application.CropAlertApplication;
-import farming.cropalert.data.dto.User;
+import farming.cropalert.data.dto.Login;
+
 import farming.cropalert.rest.request.GsonRequest;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private EditText userName;
+    private EditText password;
+    private Button login;
+    public static final String PARAM_STRING="param";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
 
     }
 
     @Override
     protected void onStart () {
         super.onStart();
-        //GsonRequest(String url, Type type, Map<String, String> headers,
-        //com.android.volley.Response.Listener<T> listener, Response.ErrorListener errorListener)
-      Response.Listener<List<User>> responseListener = new Response.Listener<List<User>>() {
+        userName = (EditText) findViewById(R.id.userName);
+        password = (EditText) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login("swarna", "nithilan");
+                //login(userName.getText().toString(), password.getText().toString());
+            }
+        });
 
-          @Override
-          public void onResponse(List<User> users) {
-              if (users!=null) {
-                 Log.d("Swarna", "users size=" + users.size());
-              }
-
-          }
-      };
-     Response.ErrorListener errorListener = new Response.ErrorListener() {
-         @Override
-         public void onErrorResponse(VolleyError volleyError) {
-
-         }
-     };
-      GsonRequest<List<User>> request = new GsonRequest<List<User>>("http://alertcrop.mybluemix.net/user?name=junying&password=password123",
-              new TypeToken<List<User>>(){}.getType(),
-              null,responseListener,errorListener);
-       CropAlertApplication.getInstance(this).addToRequestQueue(request);
 
     }
 
@@ -78,5 +78,43 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStop () {
+
+        super.onStop();
+
+    }
+
+    private void login(final String userName, final String password) {
+        android.util.Log.d("Swarna:", "user="+ userName + " " + "password=" + password );
+        Response.Listener<Login> responseListener = new Response.Listener<Login>() {
+
+            @Override
+            public void onResponse(Login loginResponse) {
+                if (loginResponse!=null) {
+                    Log.d("Swarna","Succesfully logged in" + userName);
+                    Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                }
+
+            }
+        };
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(MainActivity.this,R.string.login_failed,Toast.LENGTH_LONG).show();
+
+
+            }
+        };
+        GsonRequest<Login> request = new GsonRequest<Login>("http://alertcrop.mybluemix.net/login?name=" + userName + "&password="+ password,
+                new TypeToken<Login>(){}.getType(),
+                null,responseListener,errorListener);
+        CropAlertApplication.getInstance(this).addToRequestQueue(request);
+
+
     }
 }

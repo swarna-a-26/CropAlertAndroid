@@ -30,19 +30,7 @@ public class GsonRequest<T> extends Request<T> {
      * @param clazz Relevant class object, for Gson's reflection
      * @param headers Map of request headers
      */
-    /*public GsonRequest(String url, Class<T> clazz, Map<String, String> headers,
-                       Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(Method.GET, url, errorListener);
-        this.clazz = clazz;
-        this.headers = headers;
-        this.listener = listener;
-    }*/
-
-    /* Type type = new TypeToken<ArrayList<Example>>(){}.getType();
-ArrayList<Example> = gson.fromJson(jsonString, type);*/
-
-
-    public GsonRequest(String url, Type type, Map<String, String> headers,
+   public GsonRequest(String url, Type type, Map<String, String> headers,
                        Response.Listener<T> listener, Response.ErrorListener errorListener) {
         super(Method.GET, url, errorListener);
         this.type = type;
