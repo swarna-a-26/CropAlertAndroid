@@ -61,10 +61,14 @@ public class CropDeiseasesAdapter extends ArrayAdapter<CropDisease> {
 
             if (imageUrls!=null && imageUrls.size() > 0) {
                 viewHolder.imageView.setImageUrl(imageUrls.get(0), mImageLoader);
+            } else if (data.getImageUrl()!=null && !data.getImageUrl().isEmpty()) {
+                android.util.Log.d("Swarna:","Inside set image");
+                viewHolder.imageView.setImageUrl(data.getImageUrl(), mImageLoader);
+
             }
-            android.util.Log.d("Swarna:","Disease=" + data.getDisease());
-            android.util.Log.d("Swarna:","location=" + data.getLocation());
-            android.util.Log.d("Swarna:","location=" + data.getSymptom());
+            //android.util.Log.d("Swarna:","Disease=" + data.getDisease());
+            //android.util.Log.d("Swarna:","location=" + data.getLocation());
+           //android.util.Log.d("Swarna:","symptom=" + data.getSymptom());
 
             viewHolder.disease.setText(data.getDisease());
             viewHolder.location.setText(data.getLocation());

@@ -10,9 +10,10 @@
 
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/cropImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:background="@drawable/default_image"
+            android:scaleType="fitXY"
             />
 
         <TextView android:id="@+id/itemDisease"

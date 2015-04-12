@@ -14,6 +14,7 @@ public class CropDisease {
     private  String location;
     private  int aa;
     private  int rating;
+    private String image;
     private List<String> imageUrls;
 
     public String getCrop() {
@@ -40,6 +41,12 @@ public class CropDisease {
     }
     public List<String> getImageUrls() {
         return imageUrls;
+    }
+
+    public String getImageUrl() {
+
+        return image;
+
     }
 
 
