@@ -16,6 +16,8 @@
     <string name="disease">Disease</string>
     <string name="symptoms">Symptoms</string>
     <string name="location">Location</string>
+    <string name="remedy">Remedy</string>
+    <string name="harvesttime">Harvest time</string>
     <string name="search">Search</string>
     <string name="try_again_later">Server Problem,Please try again later...</string>
     <string name="username_placeholder">Your desired username</string>
