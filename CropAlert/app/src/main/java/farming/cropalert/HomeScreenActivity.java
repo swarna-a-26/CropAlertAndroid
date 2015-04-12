@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
@@ -23,6 +24,7 @@ import farming.cropalert.data.dto.CropDisease;
 import farming.cropalert.data.dto.Login;
 import farming.cropalert.rest.request.GsonRequest;
 import farming.cropalert.util.Utils;
+import com.google.android.gms.location.LocationServices;
 
 
 /**
@@ -36,6 +38,7 @@ public class HomeScreenActivity extends ActionBarActivity {
     private EditText symptoms;
     private EditText location;
     private View search;
+    private GoogleApiClient googleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,6 +161,14 @@ public class HomeScreenActivity extends ActionBarActivity {
 
 
     }
+
+    /*protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+    }*/
 
 
 

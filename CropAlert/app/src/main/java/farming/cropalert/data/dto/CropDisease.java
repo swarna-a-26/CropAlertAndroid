@@ -1,5 +1,7 @@
 package farming.cropalert.data.dto;
 
+import java.util.List;
+
 /**
  * Created by swarna on 4/11/15.
  */
@@ -12,6 +14,7 @@ public class CropDisease {
     private  String location;
     private  int aa;
     private  int rating;
+    private List<String> imageUrls;
 
     public String getCrop() {
         return crop;
@@ -22,6 +25,7 @@ public class CropDisease {
     public String getSymptom() {
         return symptom;
     }
+    public String getLocation() { return location;}
 
     public String getRemedy() {
         return remedy;
@@ -33,6 +37,9 @@ public class CropDisease {
 
     public int getRating() {
         return rating;
+    }
+    public List<String> getImageUrls() {
+        return imageUrls;
     }
 
 
