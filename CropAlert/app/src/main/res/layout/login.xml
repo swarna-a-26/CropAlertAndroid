@@ -24,6 +24,7 @@
             android:lines="1"
             android:paddingLeft="5dp"
             android:imeOptions="actionNext"
+            android:inputType="text|textNoSuggestions|textEmailAddress"
             android:cursorVisible="true">
             <requestFocus />
 
@@ -52,6 +53,7 @@
             android:maxLines="1"
             android:lines="1"
             android:paddingLeft="4dp"
+            android:inputType="textPassword"
             android:cursorVisible="true"
 
            />

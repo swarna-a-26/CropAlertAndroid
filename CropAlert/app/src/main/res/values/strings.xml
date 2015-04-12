@@ -24,5 +24,7 @@
     <string name="password_placeholder">Make it strong!</string>
     <string name="mobileno_placeholder">Receive SMS Alerts</string>
     <string name="passwordconfirm_placeholder">Cofirm your password</string>
+    <string name="cropdiseases">Crop Diseases</string>
+    <string name="noResults">No Results found.You can update the data</string>
 
 </resources>

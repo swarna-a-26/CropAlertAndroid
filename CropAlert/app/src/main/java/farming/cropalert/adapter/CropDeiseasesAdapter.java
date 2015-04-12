@@ -24,11 +24,13 @@ public class CropDeiseasesAdapter extends ArrayAdapter<CropDisease> {
     private Context ctx;
     private List<CropDisease> cropDiseases;
 
-    public CropDeiseasesAdapter(Context context, int resource, List<CropDisease> cropDiseases) {
+    public CropDeiseasesAdapter(Context context, int resource) {
         super(context, resource);
-        this.cropDiseases = cropDiseases;
+        this.ctx = context;
+
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View itemView;
         ViewHolder viewHolder;
@@ -53,22 +55,53 @@ public class CropDeiseasesAdapter extends ArrayAdapter<CropDisease> {
 
 // Set the URL of the image that should be loaded into this view, and
 // specify the ImageLoader that will be used to make the request.
-            viewHolder.imageView.setImageUrl("htpp://urls", mImageLoader);
+            List<String> imageUrls = data.getImageUrls();
+            viewHolder.imageView.setDefaultImageResId(R.drawable.default_image);
+            viewHolder.imageView.setErrorImageResId(R.drawable.default_image);
+
+            if (imageUrls!=null && imageUrls.size() > 0) {
+                viewHolder.imageView.setImageUrl(imageUrls.get(0), mImageLoader);
+            }
+            android.util.Log.d("Swarna:","Disease=" + data.getDisease());
+            android.util.Log.d("Swarna:","location=" + data.getLocation());
+            android.util.Log.d("Swarna:","location=" + data.getSymptom());
+
             viewHolder.disease.setText(data.getDisease());
             viewHolder.location.setText(data.getLocation());
             viewHolder.symptoms.setText(data.getSymptom());
 
 
         }
+          return itemView;
+    }
 
+    public void setCropDiseases(List<CropDisease> cropDiseases) {
+        this.cropDiseases = cropDiseases;
+        notifyDataSetChanged();
 
+    }
 
+    @Override
+    public int getCount() {
+        int count=0;
+        if (cropDiseases!=null) {
+            count= cropDiseases.size();
+        }
+        return count;
+    }
 
+    @Override
+    public CropDisease getItem(int position) {
+        CropDisease cropDisease=null;
+        if (cropDiseases!=null) {
+            cropDisease= cropDiseases.get(position);
+        }
+        return cropDisease;
+    }
 
-
-
-
-        return itemView;
+    @Override
+    public long getItemId(int position) {
+        return 0;
     }
 
 
@@ -78,10 +111,6 @@ public class CropDeiseasesAdapter extends ArrayAdapter<CropDisease> {
         TextView disease;
         TextView location;
         TextView symptoms;
-
-
-
-
 
     }
 }

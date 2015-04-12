@@ -26,7 +26,7 @@
         <TextView android:id="@+id/itemLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@id/itemDisease"
+            android:layout_marginTop="2dp"
             android:layout_alignLeft="@id/itemDisease"
             android:layout_below="@id/itemDisease"
             android:text="@string/location"/>
@@ -34,7 +34,7 @@
        <TextView android:id="@+id/itemSymptoms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@id/itemLocation"
+            android:layout_marginTop="2dp"
             android:layout_alignLeft="@id/itemLocation"
             android:layout_below="@id/itemLocation"
             android:text="@string/symptoms"/>

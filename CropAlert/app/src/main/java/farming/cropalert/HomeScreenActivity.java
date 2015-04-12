@@ -39,6 +39,14 @@ public class HomeScreenActivity extends ActionBarActivity {
     private EditText location;
     private View search;
     private GoogleApiClient googleApiClient;
+    //    //
+    //crop={cropname}&disease={diseasename}&symptoms={symptoms}&location={locationname}
+
+    public static final String PARAM_CROP_KEY = "crop";
+    public static final String PARAM_DISEASE_KEY="disease";
+    public static final String PARAM_SYMPTOMS_KEY="symptoms";
+    public static final String PARAM_LOCATION_KEY="location";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,35 +137,14 @@ public class HomeScreenActivity extends ActionBarActivity {
         Utils.trim(symptomsName);
         String locationName = location.getText().toString();
         Utils.trim(locationName);
-        Response.Listener<List<CropDisease>> responseListener = new Response.Listener<List<CropDisease>>() {
+       Intent intent = new Intent(HomeScreenActivity.this, SearchResultsActivity.class);
+       intent.putExtra(PARAM_LOCATION_KEY, locationName);
+       intent.putExtra(PARAM_CROP_KEY, cropName);
+       intent.putExtra(PARAM_DISEASE_KEY, diseaseName);
+       intent.putExtra(PARAM_SYMPTOMS_KEY, symptomsName);
+       startActivity(intent);
+       overridePendingTransition(0, 0);
 
-            @Override
-            public void onResponse(List<CropDisease> cropDiseases) {
-                if (cropDiseases!=null) {
-                    Log.d("Swarna", "Succesfully logged in" + userName);
-                   // Intent intent = new Intent(HomeScreenActivity.this, HomeScreenActivity.class);
-                    //intent.putExtra(PARAM_STRING, userName);
-
-                    //startActivity(intent);
-                   // overridePendingTransition(0, 0);
-                   // finish();
-                }
-
-            }
-        };
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(HomeScreenActivity.this, R.string.try_again_later, Toast.LENGTH_LONG).show();
-
-
-            }
-        };
-        GsonRequest<List<CropDisease>> request = new GsonRequest<List<CropDisease>>("http://alertcrop.mybluemix.net/login?crop=" + crop + "&disease="+ disease
-                                      + "&symptoms=" + symptomsName + "&location=" + locationName ,
-                new TypeToken<List<CropDisease>>(){}.getType(),
-                null,responseListener,errorListener);
-        CropAlertApplication.getInstance(this).addToRequestQueue(request);
 
 
     }
