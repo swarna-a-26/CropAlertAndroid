@@ -1,5 +1,6 @@
 package farming.cropalert;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
@@ -8,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -98,13 +100,31 @@ public class SearchResultsActivity extends ActionBarActivity {
 
     private void initViews() {
         searchResults = (ListView) findViewById(R.id.searchResults);
+        searchResults.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CropDisease cropDisease = cropDeiseasesAdapter.getItem(position);
+                String cropDiseaseId = cropDisease.getId();
+                Intent intent = new Intent(SearchResultsActivity.this, DiseaseInfoActivity.class);
+                intent.putExtra(DiseaseInfoActivity.DISEASE_ID_KEY, cropDiseaseId);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+
+            }
+        });
         noResultsFound = (ViewGroup) findViewById(R.id.noResultsFound);
         updatefragmentHolder = (ViewGroup) findViewById(R.id.updatefragmentHolder);
         cropDeiseasesAdapter = new CropDeiseasesAdapter(this,R.layout.search_result_item);
         searchResults.setAdapter(cropDeiseasesAdapter);
     }
 
-    private void search(final String crop,final String disease,final String symptomsName, final String locationName) {
+    private void search( String crop, String disease, String symptomsName,  String locationName) {
+        crop = crop.trim();
+        disease = disease.trim();
+        symptomsName=symptomsName.trim();
+        locationName=locationName.trim();
+
 
         Response.Listener<List<CropDisease>> responseListener = new Response.Listener<List<CropDisease>>() {
 
@@ -128,8 +148,10 @@ public class SearchResultsActivity extends ActionBarActivity {
             }
         };
         //crop={cropname}&disease={diseasename}&symptoms={symptoms}&location={locationname}
-        GsonRequest<List<CropDisease>> request = new GsonRequest<List<CropDisease>>("http://alertcrop.mybluemix.net/cropdisease?crop=" + crop + "&disease="+ disease
-                + "&symptoms=" + symptomsName + "&location=" + locationName ,
+        String url = "http://alertcrop.mybluemix.net/cropdisease?crop=" + crop + "&disease="+ disease
+                + "&symptoms=" + symptomsName + "&location=" + locationName;
+        android.util.Log.d("Swarna:", "url=" + url);
+        GsonRequest<List<CropDisease>> request = new GsonRequest<List<CropDisease>>(url ,
                 new TypeToken<List<CropDisease>>(){}.getType(),
                 null,responseListener,errorListener);
         CropAlertApplication.getInstance(this).addToRequestQueue(request);

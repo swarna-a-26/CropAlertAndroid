@@ -1,5 +1,7 @@
 package farming.cropalert.util;
 
+import android.widget.TextView;
+
 /**
  * Created by swarna on 4/11/15.
  */
@@ -13,6 +15,15 @@ public class Utils {
         }
 
         return str;
+
+    }
+
+    public static void checkAndUpdateText(TextView view , String data) {
+        if (data!=null) {
+            view.setText(data);
+        } else {
+            view.setText("");
+        }
 
     }
 }

@@ -55,12 +55,17 @@ public class GsonRequest<T> extends Request<T> {
             String json = new String(
                     response.data,
                     HttpHeaderParser.parseCharset(response.headers));
+            //android.util.Log.d("Swarna: Json=" , json);
             return (Response<T>) Response.success(
                     gson.fromJson(json, type),
                     HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
+            android.util.Log.d("Swarna:UnsupportedEncodingException" ,e.toString());
             return Response.error(new ParseError(e));
+
         } catch (JsonSyntaxException e) {
+            android.util.Log.d("Swarna:JsonSysntaxException" ,e.toString());
+            e.printStackTrace();
             return Response.error(new ParseError(e));
         }
     }

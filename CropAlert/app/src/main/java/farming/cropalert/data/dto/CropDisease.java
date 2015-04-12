@@ -12,10 +12,30 @@ public class CropDisease {
     private  String remedy;
     private  String harvest;
     private  String location;
-    private  int aa;
+
     private  int rating;
     private String image;
     private List<String> imageUrls;
+    private String temp;
+    private String humidity;
+    private String moist;
+    private String id;
+    private String startdate;
+    private String reportdate;
+    private String aae;
+    private  String aa;
+    private String soiltype;
+    private String enddate;
+    private String lat;
+    private String lon;
+
+
+
+
+
+
+
+
 
     public String getCrop() {
         return crop;
@@ -48,6 +68,21 @@ public class CropDisease {
         return image;
 
     }
+    public String getTemperature() {
+        return temp;
+    }
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public String getMoist() {
+        return moist;
+    }
+
+    public String getId() {
+        return id;
+    }
+
 
 
 }

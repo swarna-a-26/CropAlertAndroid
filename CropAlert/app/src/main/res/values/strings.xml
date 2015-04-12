@@ -26,5 +26,8 @@
     <string name="passwordconfirm_placeholder">Cofirm your password</string>
     <string name="cropdiseases">Crop Diseases</string>
     <string name="noResults">No Results found.You can update the data</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="moisture">Moisture</string>
 
 </resources>
