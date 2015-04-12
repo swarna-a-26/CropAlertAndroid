@@ -9,5 +9,10 @@
     <string name="login">Login</string>
     <string name="hi">Hi</string>
     <string name="login_failed">Login Failed</string>
+    <string name="crop">Crop</string>
+    <string name="disease">Disease</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="location">Location</string>
+    <string name="search">Search</string>
 
 </resources>

@@ -14,6 +14,114 @@
         android:text="@string/hi"/>
 
     </LinearLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp">
+        
+        <TextView android:id="@+id/cropLabel"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/crop"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/cropLabel"
+            android:layout_alignTop="@id/cropLabel"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="5dp"
+            android:background="@color/grey"
+            android:cursorVisible="true">
+
+            <requestFocus />
+
+            </EditText>
+
+        <TextView android:id="@+id/diseaseLabel"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:gravity="center_vertical|left"
+            android:layout_below="@id/cropLabel"
+            android:layout_marginTop="30dp"
+            android:layout_alignLeft="@id/cropLabel"
+            android:text="@string/disease"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/diseaseLabel"
+            android:layout_alignTop="@id/diseaseLabel"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="5dp"
+            android:background="@color/grey"
+            android:cursorVisible="true">
+
+            </EditText>
+
+        <TextView android:id="@+id/symptomsLabel"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:gravity="center_vertical|left"
+            android:layout_below="@id/diseaseLabel"
+            android:layout_marginTop="30dp"
+            android:layout_alignLeft="@id/diseaseLabel"
+            android:text="@string/symptoms"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/symptomsLabel"
+            android:layout_alignTop="@id/symptomsLabel"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="5dp"
+            android:background="@color/grey"
+            android:cursorVisible="true">
+
+        </EditText>
+
+        <TextView android:id="@+id/locationLabel"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:gravity="center_vertical|left"
+            android:layout_below="@id/symptomsLabel"
+            android:layout_marginTop="30dp"
+            android:layout_alignLeft="@id/symptomsLabel"
+            android:text="@string/location"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/locationLabel"
+            android:layout_alignTop="@id/locationLabel"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="5dp"
+            android:background="@color/grey"
+            android:cursorVisible="true">
+
+        </EditText>
+
+
+      </RelativeLayout>
+
+    <TextView android:id="@+id/search"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:text="@string/search"
+            android:gravity="center"
+            android:background="@color/button_background"
+            android:layout_gravity="right"
+           android:layout_marginRight="15dp"
+           android:layout_marginTop="15dp"
+           android:textColor="@color/button_textcolor"
+        />
+
+
 
 
 </LinearLayout>

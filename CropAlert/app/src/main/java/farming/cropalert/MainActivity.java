@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -29,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
 
     private EditText userName;
     private EditText password;
-    private Button login;
+    private TextView login;
     public static final String PARAM_STRING="param";
 
     @Override
@@ -44,12 +45,12 @@ public class MainActivity extends ActionBarActivity {
         super.onStart();
         userName = (EditText) findViewById(R.id.userName);
         password = (EditText) findViewById(R.id.password);
-        login = (Button) findViewById(R.id.login);
+        login = (TextView) findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login("swarna", "nithilan");
-                //login(userName.getText().toString(), password.getText().toString());
+
+                login(userName.getText().toString(), password.getText().toString());
             }
         });
 
@@ -96,8 +97,11 @@ public class MainActivity extends ActionBarActivity {
                 if (loginResponse!=null) {
                     Log.d("Swarna","Succesfully logged in" + userName);
                     Intent intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+                    intent.putExtra(PARAM_STRING, userName);
+
                     startActivity(intent);
                     overridePendingTransition(0, 0);
+                    finish();
                 }
 
             }
