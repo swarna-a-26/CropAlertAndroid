@@ -117,7 +117,7 @@ public class HomeScreenActivity extends ActionBarActivity {
 
 
     }
-    private void search() {
+   private void search() {
         String cropName = crop.getText().toString();
         Utils.trim(cropName);
         String diseaseName = disease.getText().toString();

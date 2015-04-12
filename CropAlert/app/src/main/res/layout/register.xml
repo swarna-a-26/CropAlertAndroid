@@ -3,4 +3,135 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <TextView android:id="@+id/userLabel"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/text_box_height"
+            android:text="@string/username"
+            />
+        <EditText android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_height"
+            android:background="@color/grey"
+            android:maxLines="1"
+            android:lines="1"
+            android:paddingLeft="5dp"
+            android:imeOptions="actionNext"
+            android:cursorVisible="true"
+            android:hint="@string/username_placeholder">
+            <requestFocus />
+
+
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <TextView android:id="@+id/passwordLabel"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="@string/password"
+
+
+            />
+
+        <EditText android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/grey"
+            android:maxLines="1"
+            android:lines="1"
+            android:paddingLeft="4dp"
+            android:cursorVisible="true"
+            android:hint="@string/password_placeholder"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <TextView android:id="@+id/passwordLabel"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="@string/mobileno"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/mobileno_placeholder" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I would like to receive alerts"
+            android:id="@+id/radioButton" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I am a farmer"
+            android:id="@+id/radioButton2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <TextView android:id="@+id/passwordLabel"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="@string/passwordconfirm"
+            />
+
+        <EditText android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/grey"
+            android:maxLines="1"
+            android:lines="1"
+            android:paddingLeft="4dp"
+            android:cursorVisible="true"
+            android:hint="@string/passwordconfirm_placeholder"
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
