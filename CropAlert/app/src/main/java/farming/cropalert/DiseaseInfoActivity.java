@@ -111,7 +111,8 @@ public class DiseaseInfoActivity extends ActionBarActivity {
                                                    @Override
                                                    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                                                        if (fromUser) {
-                                                           sendNewRatingToServer(ratingBar.getNumStars());
+                                                           int ratingInfo = (int) Math.ceil((float)ratingBar.getRating());
+            sendNewRatingToServer(ratingInfo);
                                                        }
                                                    }
                                                }
@@ -175,7 +176,8 @@ public class DiseaseInfoActivity extends ActionBarActivity {
         Utils.checkAndUpdateText(moisturetext,cropDisease.getMoist());
         Utils.checkAndUpdateText(symptomstext,cropDisease.getSymptom());
 
-        ratingBar.setNumStars(cropDisease.getRating());
+        ratingBar.setNumStars(5);
+        ratingBar.setRating((float) cropDisease.getRating());
         ImageLoader imageLoader = CropAlertApplication.getInstance(this).getImageLoader();
         infoCropImage.setImageUrl(cropDisease.getImageUrl(), imageLoader);
 
