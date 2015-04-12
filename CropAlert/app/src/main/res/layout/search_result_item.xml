@@ -3,4 +3,48 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp">
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/cropImage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/default_image"
+            />
+
+        <TextView android:id="@+id/disease"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/cropImage"
+                  android:layout_marginLeft="5dp"
+                  android:textSize="20dp"
+                  android:text="Cabbage Napa"/>
+
+        <TextView android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@id/disease"
+            android:layout_alignLeft="@id/disease"
+            android:layout_below="@id/disease"
+            android:text="@string/location"/>
+
+       <TextView android:id="@+id/symptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@id/location"
+            android:layout_alignLeft="@id/location"
+            android:layout_below="@id/location"
+            android:text="@string/symptoms"/>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
 </LinearLayout>
