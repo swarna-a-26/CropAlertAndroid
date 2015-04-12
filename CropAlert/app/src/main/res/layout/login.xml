@@ -13,12 +13,12 @@
 
         <TextView android:id="@+id/userLabel"
             android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/text_box_height"
             android:text="@string/username"
            />
         <EditText android:id="@+id/userName"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/edit_text_height"
             android:background="@color/grey"
             android:maxLines="1"
             android:lines="1"
