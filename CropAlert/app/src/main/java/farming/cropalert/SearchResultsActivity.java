@@ -89,6 +89,13 @@ public class SearchResultsActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id==R.id.update) {
+            Intent intent = new Intent(this, UpdateUserActivity.class);
+
+
+            startActivity(intent);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
