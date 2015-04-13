@@ -29,5 +29,10 @@
     <string name="temperature">Temperature</string>
     <string name="humidity">Humidity</string>
     <string name="moisture">Moisture</string>
+    <string name="uploadimage">Image</string>
+    <string name="update">Update</string>
+    <string name="updated_success">Update Successful</string>
+    <string name="update_failed">Update Failed</string>
+    <string name="create_account">Create Account</string>
 
 </resources>

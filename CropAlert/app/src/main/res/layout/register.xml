@@ -39,7 +39,7 @@
         android:layout_marginRight="10dp"
         >
 
-        <TextView android:id="@+id/passwordLabel"
+        <TextView android:id="@+id/registerpasswordLabel"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:text="@string/password"
@@ -47,7 +47,7 @@
 
             />
 
-        <EditText android:id="@+id/password"
+        <EditText android:id="@+id/registerpassword"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@color/grey"
@@ -109,13 +109,13 @@
         android:layout_marginRight="10dp"
         >
 
-        <TextView android:id="@+id/passwordLabel"
+        <TextView android:id="@+id/registerpasswordLabelagain"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:text="@string/passwordconfirm"
             />
 
-        <EditText android:id="@+id/password"
+        <EditText android:id="@+id/registerpasswordagain"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:background="@color/grey"
@@ -127,11 +127,14 @@
             />
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="40dp"
         android:text="@string/register"
         android:id="@+id/button"
+        android:textColor="@color/button_textcolor"
+        android:background="@color/button_background"
+        android:gravity="center"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

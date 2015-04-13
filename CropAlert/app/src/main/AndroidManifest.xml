@@ -37,6 +37,16 @@
             android:name="farming.cropalert.DiseaseInfoActivity"
             android:label="@string/app_name" >
         </activity>
+
+        <activity
+            android:name="farming.cropalert.UpdateUserActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="farming.cropalert.RegistrationActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

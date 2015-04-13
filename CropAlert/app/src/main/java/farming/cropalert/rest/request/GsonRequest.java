@@ -36,8 +36,16 @@ public class GsonRequest<T> extends Request<T> {
         this.type = type;
         this.headers = headers;
         this.listener = listener;
+
     }
 
+    public GsonRequest(String url, Type type, Map<String, String> headers,
+                       Response.Listener<T> listener, Response.ErrorListener errorListener,boolean isPost) {
+        super(Method.POST, url, errorListener);
+        this.type = type;
+        this.headers = headers;
+        this.listener = listener;
+    }
 
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
@@ -55,7 +63,7 @@ public class GsonRequest<T> extends Request<T> {
             String json = new String(
                     response.data,
                     HttpHeaderParser.parseCharset(response.headers));
-            //android.util.Log.d("Swarna: Json=" , json);
+            android.util.Log.d("Swarna: Json=" , json);
             return (Response<T>) Response.success(
                     gson.fromJson(json, type),
                     HttpHeaderParser.parseCacheHeaders(response));

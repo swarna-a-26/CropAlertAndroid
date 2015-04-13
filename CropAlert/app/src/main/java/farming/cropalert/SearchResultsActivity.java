@@ -24,6 +24,7 @@ import farming.cropalert.application.CropAlertApplication;
 import farming.cropalert.data.dto.CropDisease;
 import farming.cropalert.fragment.UpdateFragment;
 import farming.cropalert.rest.request.GsonRequest;
+import farming.cropalert.util.Utils;
 
 
 /**
@@ -109,7 +110,7 @@ public class SearchResultsActivity extends ActionBarActivity {
                 intent.putExtra(DiseaseInfoActivity.DISEASE_ID_KEY, cropDiseaseId);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
-                finish();
+
 
             }
         });
@@ -124,6 +125,10 @@ public class SearchResultsActivity extends ActionBarActivity {
         disease = disease.trim();
         symptomsName=symptomsName.trim();
         locationName=locationName.trim();
+        crop= Utils.urlEncode(crop);
+        disease =  Utils.urlEncode(disease);
+        symptomsName=Utils.urlEncode(symptomsName);
+        locationName=Utils.urlEncode(locationName);
 
 
         Response.Listener<List<CropDisease>> responseListener = new Response.Listener<List<CropDisease>>() {

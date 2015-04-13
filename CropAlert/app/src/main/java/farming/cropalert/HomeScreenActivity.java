@@ -22,6 +22,7 @@ import java.util.List;
 import farming.cropalert.application.CropAlertApplication;
 import farming.cropalert.data.dto.CropDisease;
 import farming.cropalert.data.dto.Login;
+import farming.cropalert.fragment.UpdateFragment;
 import farming.cropalert.rest.request.GsonRequest;
 import farming.cropalert.util.Utils;
 import com.google.android.gms.location.LocationServices;
@@ -106,6 +107,13 @@ public class HomeScreenActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        if (id==R.id.update) {
+            Intent intent = new Intent(this, UpdateUserActivity.class);
+
+
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

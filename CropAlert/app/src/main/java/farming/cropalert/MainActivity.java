@@ -31,7 +31,9 @@ public class MainActivity extends ActionBarActivity {
     private EditText userName;
     private EditText password;
     private TextView login;
+    private TextView createAccount;
     public static final String PARAM_STRING="param";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,16 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
 
                 login(userName.getText().toString(), password.getText().toString());
+            }
+        });
+        createAccount = (TextView) findViewById(R.id.createAcoount);
+        createAccount.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+
             }
         });
 
@@ -114,7 +126,9 @@ public class MainActivity extends ActionBarActivity {
 
             }
         };
-        GsonRequest<Login> request = new GsonRequest<Login>("http://alertcrop.mybluemix.net/login?name=" + userName + "&password="+ password,
+        String url = "http://alertcrop.mybluemix.net/login?name=" + userName + "&password="+ password;
+        android.util.Log.d("Swarna:" ,"loginurl=" + url );
+        GsonRequest<Login> request = new GsonRequest<Login>(url,
                 new TypeToken<Login>(){}.getType(),
                 null,responseListener,errorListener);
         CropAlertApplication.getInstance(this).addToRequestQueue(request);

@@ -62,16 +62,41 @@
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView android:id="@+id/createAcoount"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:text="@string/create_account"
+            android:background="@color/button_background"
+            android:textColor="@color/button_textcolor"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+
+            android:gravity="center"
+            />
+
     <TextView android:id="@+id/login"
-        android:layout_width="100dp"
+        android:layout_width="110dp"
         android:layout_height="30dp"
         android:text="@string/login"
         android:background="@color/button_background"
         android:textColor="@color/button_textcolor"
         android:layout_gravity="right"
-        android:layout_marginRight="10dp"
+
         android:gravity="center"
-        android:layout_marginTop="10dp"/>
+        />
+
+
+    </LinearLayout>
+
 
 
 
