@@ -34,5 +34,7 @@
     <string name="updated_success">Update Successful</string>
     <string name="update_failed">Update Failed</string>
     <string name="create_account">Create Account</string>
+    <string name="registration_success">Registration Successful</string>
+    <string name="registration_failed">Registration Failed</string>
 
 </resources>

@@ -72,12 +72,12 @@
             android:text="@string/mobileno"
             />
 
-        <EditText
+        <EditText android:id="@+id/mobileNumber"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/editText"
+            android:background="@color/grey"
             android:layout_gravity="center_horizontal"
             android:hint="@string/mobileno_placeholder" />
     </LinearLayout>
@@ -127,11 +127,10 @@
             />
     </LinearLayout>
 
-    <TextView
+    <TextView  android:id="@+id/registerButton"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:text="@string/register"
-        android:id="@+id/button"
         android:textColor="@color/button_textcolor"
         android:background="@color/button_background"
         android:gravity="center"
